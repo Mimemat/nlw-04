@@ -6,21 +6,10 @@ networks:
 
 services:
   db:
-    image: 'bitnami/postgresql:latest'
+    image: 'postgres'
     ports: 
       - '5432:5432'
     environment:
-      - POSTGRESQL_USERNAME=docker
-      - POSTGRESQL_PASSWORD=rocketpay
-      - POSTGRESQL_DATABASE=rocketpay
-    networks:
-      - rocketpay-network
-  db-test:
-    image: 'bitnami/postgresql:latest'
-    ports: 
-      - '5433:5432'
-    environment:
-      - POSTGRESQL_USERNAME=postgres
-      - POSTGRESQL_PASSWORD=postgres
+      - POSTGRES_PASSWORD=rocketpay
     networks:
       - rocketpay-network

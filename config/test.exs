@@ -7,11 +7,10 @@ use Mix.Config
 # Run `mix help test` for more information.
 config :rocketpay, Rocketpay.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "rocketpay",
   database: "rocketpay_test#{System.get_env("MIX_TEST_PARTITION")}",
   hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox,
-  port: 5433
+  pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
@@ -21,3 +20,5 @@ config :rocketpay, RocketpayWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :pbkdf2_elixir, :rounds, 1
