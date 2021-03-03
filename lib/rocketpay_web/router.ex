@@ -12,6 +12,14 @@ defmodule RocketpayWeb.Router do
   end
 
   scope "/api", RocketpayWeb do
+    pipe_through :api
+
+    get "/:filename", WelcomeController, :index
+
+    post "/users", UsersController, :create
+  end
+
+  scope "/api", RocketpayWeb do
     pipe_through([:api, :auth])
 
     post "/accounts/:id/deposit", AccountsController, :deposit
